@@ -1,0 +1,249 @@
+/* ──────────────────────────────────────────────────────────────
+   OAK Media Works — design tokens
+   Dual-mode (light default, dark override) + manual theme switch.
+   Drop into your global CSS. Apply [data-theme="dark"] on <html>
+   or <body> to opt-in to dark; remove for light.
+   ────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Type ───────────────────────────────────────────────── */
+  --font-sans:  "Satoshi", ui-sans-serif, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, sans-serif;
+  --font-mono:  "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo,
+                Consolas, monospace;
+
+  /* ── Brand anchor (mode-independent identity) ───────────── */
+  --brand-truckee: #4E85DF;   /* canonical Truckee Blue — anchor color */
+
+  /* ── Surfaces — LIGHT (default) ─────────────────────────── */
+  --bg-canvas:  #F2EBE0;    /* warm cream paper — base background */
+  --bg-surface: #F8F2E8;    /* cards, elevated panels, modals */
+  --bg-well:    #E8DFCC;    /* deeper recess — wells, code blocks */
+  --bg-hover:   #ECE4D2;    /* hover state on neutral surfaces */
+
+  /* ── Text — LIGHT ───────────────────────────────────────── */
+  --text-1:     #1A1612;    /* primary — headlines, body */
+  --text-2:     #4F463C;    /* secondary — supporting copy */
+  --text-3:     #8A8278;    /* tertiary — metadata, captions */
+  --text-disabled: #BFB7A8;
+
+  /* ── Rules / borders — LIGHT ───────────────────────────── */
+  /* WCAG 1.4.11 non-text contrast (3:1 min) on cream canvas.
+     Warm coffee tones — no grays — to keep the surface pleasant. */
+  --rule:        #8C7B5C;   /* default divider — 3.5:1 on cream */
+  --rule-strong: #6B5A40;   /* emphasized divider — 5.6:1 on cream */
+
+  /* ── Accent (Truckee Blue tier) — LIGHT ────────────────── */
+  /* Canonical Truckee Blue on cream lands at ~3.1:1 (AA Large only).
+     For body links / small text needing AA normal, use
+     --accent-deep (~4.6:1). Use --accent for fills, focus,
+     emphasis chrome where size is generous. */
+  --accent:        #4E85DF;  /* primary actions, links, focus */
+  --accent-hover:  #6E9CE8;  /* hover */
+  --accent-deep:   #2E66C7;  /* emphasis fills, deep brand chrome, AA-safe links */
+  --accent-soft:   #E6EDF9;  /* selected/hover wash on neutral bg */
+  --accent-on:     #FFFFFF;  /* text/icon color on accent fills */
+
+  /* ── Semantic — LIGHT ──────────────────────────────────── */
+  --success:  #177D4D;
+  --warning:  #B5640A;
+  --error:    #A8201F;
+  --success-soft: #DCEFE2;
+  --warning-soft: #F6E6CC;
+  --error-soft:   #F4D9D7;
+
+  /* ── Numerals helper ───────────────────────────────────── */
+  /* Apply font-variant-numeric: var(--num-tabular) to any
+     numeric column / dollar amount / score for aligned figures. */
+  --num-tabular: tabular-nums;
+
+  /* ── Radii / elevation ─────────────────────────────────── */
+  --radius-sm: 6px;
+  --radius:    10px;
+  --radius-lg: 14px;
+  --shadow-1:  0 1px 2px rgba(26, 22, 18, 0.06);
+  --shadow-2:  0 4px 16px rgba(26, 22, 18, 0.08);
+
+  /* ── Spacing — 4px base ────────────────────────────────── */
+  /* Use these tokens for any margin, padding, or gap.
+     No raw px values in product CSS. */
+  --space-xs:   4px;   /* component-internal — icon/text gap */
+  --space-sm:   8px;   /* tight clusters */
+  --space-md:   12px;  /* default cluster gap */
+  --space-lg:   16px;  /* card padding, form rows */
+  --space-xl:   24px;  /* section-internal gaps */
+  --space-2xl:  32px;  /* between sections */
+  --space-3xl:  48px;  /* page-level breathing room */
+  --space-4xl:  64px;  /* hero, major breaks */
+
+  /* ── Motion ────────────────────────────────────────────── */
+  /* Animate state changes — hover, focus, active, expand/collapse.
+     Don't animate scroll. Always respect prefers-reduced-motion. */
+  --motion-fast:    120ms;  /* hover / active / tap states */
+  --motion-base:    200ms;  /* default — most transitions */
+  --motion-slow:    320ms;  /* modal/sheet entry, accordion */
+  --motion-slower:  500ms;  /* page transitions, hero motion */
+
+  --ease-standard:    cubic-bezier(0.2, 0, 0, 1);      /* default */
+  --ease-decelerate:  cubic-bezier(0, 0, 0, 1);        /* entering UI */
+  --ease-accelerate:  cubic-bezier(0.3, 0, 1, 1);      /* exiting UI */
+  --ease-emphasized:  cubic-bezier(0.05, 0.7, 0.1, 1); /* expressive moments */
+
+  /* ── Z-index ladder ────────────────────────────────────── */
+  /* Use these tokens for any positioned element.
+     No raw z-index integers in product CSS. */
+  --z-base:           0;
+  --z-raised:         10;    /* sticky-within-scroll-container */
+  --z-dropdown:       100;
+  --z-sticky:         200;
+  --z-fixed:          300;   /* page-level fixed nav */
+  --z-modal-backdrop: 400;
+  --z-modal:          500;
+  --z-popover:        600;
+  --z-tooltip:        700;
+  --z-toast:          800;   /* always on top */
+}
+
+/* ──────────────────────────────────────────────────────────────
+   DARK mode — explicit opt-in via [data-theme="dark"]
+   ────────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  /* ── Surfaces ──────────────────────────────────────────── */
+  --bg-canvas:  #161311;    /* warm coffee-dark — NOT pure black */
+  --bg-surface: #1E1A16;    /* cards, elevated panels */
+  --bg-well:    #0E0C0A;    /* recessed surfaces */
+  --bg-hover:   #25201B;
+
+  /* ── Text ──────────────────────────────────────────────── */
+  --text-1:     #F2EBE0;    /* primary — mirror of cream paper */
+  --text-2:     #A8A095;
+  --text-3:     #6E665C;
+  --text-disabled: #4A433D;
+
+  /* ── Rules ─────────────────────────────────────────────── */
+  /* WCAG 1.4.11 non-text contrast (3:1 min) on coffee-dark canvas.
+     Warm beige/coffee — no grays — mirrors the light tier. */
+  --rule:        #7B6A4F;   /* default divider — 3.6:1 on coffee-dark */
+  --rule-strong: #9C8A6B;   /* emphasized divider — 5.6:1 on coffee-dark */
+
+  /* ── Accent (Truckee Blue tier shifted brighter for dark) ── */
+  /* Canonical Truckee Blue #4E85DF works on coffee-dark (~5.1:1) but
+     the tier lifts further so links feel crisp. Brand identity is
+     preserved in --accent-deep (canonical Truckee Blue) and chart
+     fills, while --accent does the readable UI work. */
+  --accent:        #6E9CE8;  /* primary actions, links, focus */
+  --accent-hover:  #8FB5F0;  /* hover */
+  --accent-deep:   #4E85DF;  /* fills behind light text, halos, chart bands */
+  --accent-soft:   #1A2440;  /* selected/hover wash on dark surface */
+  --accent-on:     #F2EBE0;  /* text/icon color on accent fills */
+
+  /* ── Semantic — DARK ───────────────────────────────────── */
+  --success:  #34C77B;
+  --warning:  #E89A48;
+  --error:    #E15553;
+  --success-soft: #18301F;
+  --warning-soft: #36241A;
+  --error-soft:   #3A1E1D;
+
+  /* ── Elevation tuned for dark ──────────────────────────── */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   System preference fallback — when no explicit theme attribute
+   is set, follow the OS. Manual toggle still wins.
+   ────────────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-canvas:  #161311;
+    --bg-surface: #1E1A16;
+    --bg-well:    #0E0C0A;
+    --bg-hover:   #25201B;
+
+    --text-1:     #F2EBE0;
+    --text-2:     #A8A095;
+    --text-3:     #6E665C;
+    --text-disabled: #4A433D;
+
+    --rule:        #7B6A4F;
+    --rule-strong: #9C8A6B;
+
+    --accent:        #6E9CE8;
+    --accent-hover:  #8FB5F0;
+    --accent-deep:   #4E85DF;
+    --accent-soft:   #1A2440;
+    --accent-on:     #F2EBE0;
+
+    --success:  #34C77B;
+    --warning:  #E89A48;
+    --error:    #E15553;
+    --success-soft: #18301F;
+    --warning-soft: #36241A;
+    --error-soft:   #3A1E1D;
+
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-2: 0 8px 24px rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Reduced motion — always respect user preference
+   ────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Body baseline — drop into your global stylesheet
+   ────────────────────────────────────────────────────────────── */
+html, body {
+  background: var(--bg-canvas);
+  color: var(--text-1);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Apply tabular numerals globally to numeric containers
+   (cells, dollar amounts, scores, counts, timestamps).
+   Right-justified so decimals stack across rows. */
+.num,
+[data-num],
+table td.num,
+.tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: var(--num-tabular);
+  letter-spacing: -0.01em;
+  text-align: right;
+}
+
+/* Truckee Blue identity — example application */
+a, .link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: currentColor;
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+a:hover { color: var(--accent-hover); }
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-on);
+  border: 1px solid var(--accent);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 14px;
+  transition: background var(--motion-fast) var(--ease-standard),
+              border-color var(--motion-fast) var(--ease-standard);
+}
+.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
