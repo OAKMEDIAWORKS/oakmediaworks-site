@@ -1,48 +1,36 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OAK Media Works</title>
-  <meta name="description" content="OAK Media Works — tools for creative teams." />
-  <meta property="og:title" content="OAK Media Works" />
-  <meta property="og:description" content="Tools for creative teams." />
-  <meta name="theme-color" content="#062a22" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310b981'/%3E%3Cpath d='M26 20 L26 44 L46 32 Z' fill='%23062a22'/%3E%3C/svg%3E" />
+  <meta name="description" content="OAK Media Works builds focused software for creative and media teams — secure, fast, and deliberately small.">
+
+  <meta property="og:title" content="OAK Media Works">
+  <meta property="og:description" content="Focused software for creative and media teams.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://oakmediaworks.com">
+  <meta name="theme-color" content="#4E85DF">
+
+  <link rel="icon" type="image/svg+xml" href="/oak-mark.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="/oak-tokens.css">
+
   <style>
-    :root {
-      --bg-0: #07100d;
-      --bg-1: #0c1814;
-      --bg-2: #122220;
-      --border: #1f3a35;
-      --border-strong: #2d5750;
-      --fg-1: #e8f5f0;
-      --fg-2: #9bb5af;
-      --fg-3: #6c8983;
-      --accent: #34d399;
-      --accent-strong: #10b981;
-      --accent-bg: #062a22;
-    }
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
-    body {
-      background: var(--bg-0);
-      color: var(--fg-1);
-      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      background-image:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(52, 211, 153, 0.18), transparent 60%),
-        radial-gradient(ellipse 60% 40% at 90% 110%, rgba(16, 185, 129, 0.10), transparent 60%);
-    }
+    body { padding: 0 var(--space-xl); }
     a { color: inherit; text-decoration: none; }
 
     .wrap {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 32px 24px 48px;
+      padding: var(--space-2xl) 0 var(--space-3xl);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -51,52 +39,33 @@
     header {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 64px;
+      gap: var(--space-md);
+      margin-bottom: var(--space-4xl);
     }
-    .mark {
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
-      display: grid; place-items: center;
-      box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.25), 0 4px 16px rgba(16, 185, 129, 0.2);
-    }
-    .mark svg { width: 14px; height: 14px; }
+    header img { width: 32px; height: 32px; display: block; }
     .wordmark {
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--fg-1);
+      color: var(--text-1);
     }
-    .wordmark .dim { color: var(--fg-3); font-weight: 500; }
+    .wordmark .dim { color: var(--text-3); font-weight: 400; }
 
-    .hero { margin: 24px 0 72px; }
-    .eyebrow {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
+    .hero { margin: var(--space-xl) 0 var(--space-4xl); }
     h1 {
       font-size: clamp(40px, 7vw, 72px);
       line-height: 1.04;
       letter-spacing: -0.03em;
-      font-weight: 600;
-      margin: 0 0 20px;
+      font-weight: 500;
+      margin: 0 0 var(--space-lg);
       max-width: 18ch;
-    }
-    h1 .accent {
-      background: linear-gradient(120deg, var(--accent) 0%, #5eead4 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: var(--text-1);
     }
     .lede {
       font-size: clamp(16px, 1.6vw, 19px);
-      color: var(--fg-2);
+      line-height: 1.6;
+      color: var(--text-2);
       max-width: 56ch;
       margin: 0;
     }
@@ -104,112 +73,112 @@
     .products {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
-      margin-bottom: 64px;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-4xl);
     }
     @media (min-width: 720px) {
-      .products { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .products { grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
     }
 
     .card {
-      position: relative;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      background: var(--bg-1);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
-      overflow: hidden;
+      gap: var(--space-lg);
+      background: var(--bg-surface);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      transition: border-color var(--motion-fast) var(--ease-standard),
+                  background var(--motion-fast) var(--ease-standard);
     }
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(120% 80% at 0% 0%, rgba(52, 211, 153, 0.08), transparent 55%);
-      opacity: 0;
-      transition: opacity 200ms ease;
-      pointer-events: none;
-    }
-    .card:hover { border-color: var(--border-strong); transform: translateY(-2px); background: var(--bg-2); }
-    .card:hover::before { opacity: 1; }
+    .card:hover { border-color: var(--rule-strong); background: var(--bg-hover); }
 
     .card-head {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: var(--space-md);
     }
     .card-icon {
       width: 36px; height: 36px;
-      border-radius: 10px;
+      border-radius: var(--radius-sm);
       display: grid; place-items: center;
-      background: var(--accent-bg);
-      border: 1px solid var(--border);
-      color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+    }
+    [data-theme="dark"] .card-icon,
+    :root:not([data-theme="light"]) .card-icon { color: var(--accent); }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .card-icon { color: var(--accent); }
     }
     .card-icon svg { width: 18px; height: 18px; }
     .card-title {
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: -0.01em;
-      color: var(--fg-1);
+      color: var(--text-1);
     }
     .card-meta {
       font-size: 11px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--fg-3);
+      color: var(--text-3);
       margin-top: 2px;
     }
     .card p {
       margin: 0;
-      color: var(--fg-2);
+      color: var(--text-2);
       font-size: 15px;
-      line-height: 1.55;
+      line-height: 1.6;
     }
     .card-cta {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      margin-top: 4px;
+      gap: var(--space-xs);
+      margin-top: var(--space-xs);
       font-size: 14px;
       font-weight: 500;
-      color: var(--accent);
+      color: var(--accent-deep);
     }
-    .card-cta svg { width: 14px; height: 14px; transition: transform 160ms ease; }
+    [data-theme="dark"] .card-cta,
+    :root:not([data-theme="light"]) .card-cta { color: var(--accent); }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .card-cta { color: var(--accent); }
+    }
+    .card-cta svg { width: 14px; height: 14px; transition: transform var(--motion-fast) var(--ease-standard); }
     .card:hover .card-cta svg { transform: translateX(3px); }
 
     footer {
       margin-top: auto;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
+      padding-top: var(--space-2xl);
+      border-top: 1px solid var(--rule);
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: var(--space-lg);
       justify-content: space-between;
       align-items: center;
       font-size: 13px;
-      color: var(--fg-3);
+      color: var(--text-3);
     }
-    footer a { color: var(--fg-2); }
-    footer a:hover { color: var(--fg-1); }
+    footer a { color: var(--accent-deep); }
+    [data-theme="dark"] footer a,
+    :root:not([data-theme="light"]) footer a { color: var(--accent); }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) footer a { color: var(--accent); }
+    }
+    footer a:hover { color: var(--accent-hover); }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="mark" aria-hidden="true">
-        <svg viewBox="0 0 16 16" fill="none"><path d="M5 3 L5 13 L13 8 Z" fill="#062a22"/></svg>
-      </div>
+      <img src="/oak-mark.svg" alt="OAK Media Works mark" width="32" height="32">
       <div class="wordmark">OAK <span class="dim">Media Works</span></div>
     </header>
 
     <section class="hero">
-      <h1>Tools for teams who <span class="accent">make things</span>.</h1>
+      <h1>Tools for teams who make things.</h1>
       <p class="lede">
-        OAK Media Works builds focused software for creative and media teams —
-        secure, fast, and deliberately small.
+        OAK Media Works builds focused software for creative and media teams — secure, fast, and deliberately small.
       </p>
     </section>
 
@@ -217,7 +186,7 @@
       <a class="card" href="https://videorelay.oakmediaworks.com" target="_blank" rel="noopener">
         <div class="card-head">
           <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="6" width="14" height="12" rx="2"/>
               <path d="m17 10 4-2v8l-4-2"/>
             </svg>
@@ -228,13 +197,11 @@
           </div>
         </div>
         <p>
-          Secure job-assignment and messaging for label video teams. One thread
-          per job, encrypted at rest, link-based delivery from Drive, Frame.io,
-          Dropbox, and Spotify.
+          Secure job-assignment and messaging for label video teams. One thread per job, encrypted at rest, link-based delivery from Drive, Frame.io, Dropbox, and Spotify.
         </p>
         <span class="card-cta">
           Open the app
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
           </svg>
         </span>
@@ -243,24 +210,22 @@
       <a class="card" href="https://oaklens.io" target="_blank" rel="noopener">
         <div class="card-head">
           <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="9"/>
               <circle cx="12" cy="12" r="3.5"/>
             </svg>
           </div>
           <div>
-            <div class="card-title">Oak Lens</div>
+            <div class="card-title">OAK Lens</div>
             <div class="card-meta">For artists &amp; labels</div>
           </div>
         </div>
         <p>
-          Video intelligence for artists and labels. Tracks performance across
-          YouTube, TikTok, Instagram, and streaming, scores momentum, and
-          deploys targeted ads when a video starts trending.
+          Video intelligence for artists and labels. Tracks performance across YouTube, TikTok, Instagram, and streaming, scores momentum, and deploys targeted ads when a video starts trending.
         </p>
         <span class="card-cta">
           Visit oaklens.io
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
           </svg>
         </span>
