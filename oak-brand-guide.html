@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OAK Media Works — brand canon</title>
+<meta name="description" content="OAK Media Works canonical design tokens and brand guide. Anchor: Denim Blue #4E85DF.">
+<link rel="stylesheet" href="oak-tokens.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { padding: 0 24px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 56px 0 120px; }
+
+a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+[data-theme="dark"] a, :root:not([data-theme="light"]) a { color: var(--accent); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) a { color: var(--accent); }
+}
+
+.head { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; margin-bottom: 96px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
+.head h1 { font-size: 22px; font-weight: 500; letter-spacing: -0.01em; margin: 0 0 4px; }
+.head .sub { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; }
+
+.toggle { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; }
+.toggle button { background: transparent; border: 0; padding: 6px 14px; font-family: var(--font-mono); font-size: 11px; color: var(--text-2); cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 999px; transition: background .15s, color .15s; }
+.toggle button[aria-pressed="true"] { background: var(--accent); color: var(--accent-on); }
+
+section { margin-bottom: 96px; }
+section > .num { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+section > h2 { font-size: 36px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 16px; }
+section > .lede { font-size: 16px; line-height: 1.65; color: var(--text-2); max-width: 600px; margin: 0 0 40px; }
+
+.anchor { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: center; padding: 40px; background: var(--bg-surface); border-radius: var(--radius-lg); }
+.anchor .swatch { aspect-ratio: 1; background: var(--brand-denim); border-radius: var(--radius); }
+.anchor .name { font-size: 28px; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 4px; }
+.anchor .hex { font-family: var(--font-mono); font-size: 14px; color: var(--text-2); margin: 0 0 24px; }
+.anchor .why { font-size: 15px; line-height: 1.65; color: var(--text-2); margin: 0; }
+.anchor .history { font-size: 13px; line-height: 1.6; color: var(--text-3); margin: 24px 0 0; padding-left: 16px; border-left: 2px solid var(--rule); }
+
+.tref { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.tref h3 { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 12px; font-weight: 500; }
+.tref .table { border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--bg-surface); }
+.tref .row { display: grid; grid-template-columns: 40px 1fr 80px; gap: 12px; align-items: center; padding: 10px 16px; border-bottom: 1px solid var(--rule); }
+.tref .row:last-child { border-bottom: 0; }
+.tref .sw { width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--rule); }
+.tref .var { font-family: var(--font-mono); font-size: 12px; color: var(--text-1); }
+.tref .hex { font-family: var(--font-mono); font-size: 11px; color: var(--text-2); text-align: right; }
+
+.surfaces { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.surfaces .card { padding: 20px 16px; border-radius: var(--radius); border: 1px solid var(--rule); }
+.surfaces .label { font-family: var(--font-mono); font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+.surfaces .hex { font-family: var(--font-mono); font-size: 11px; color: var(--text-2); }
+.surf-canvas { background: var(--bg-canvas); }
+.surf-surface { background: var(--bg-surface); }
+.surf-well { background: var(--bg-well); }
+.surf-hover { background: var(--bg-hover); }
+
+.type-stack { padding: 32px; background: var(--bg-surface); border-radius: var(--radius); display: grid; gap: 24px; }
+.type-stack .row { display: grid; grid-template-columns: 140px 1fr; gap: 24px; align-items: baseline; }
+.type-stack .meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; }
+.t-h1 { font-size: 36px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+.t-h2 { font-size: 24px; font-weight: 500; letter-spacing: -0.01em; }
+.t-h3 { font-size: 18px; font-weight: 500; }
+.t-body { font-size: 16px; line-height: 1.6; color: var(--text-1); }
+.t-body-2 { font-size: 14px; line-height: 1.6; color: var(--text-2); }
+.t-meta-text { font-size: 12px; color: var(--text-3); }
+.t-mono { font-family: var(--font-mono); font-size: 13px; }
+.t-num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 14px; letter-spacing: -0.01em; }
+
+.rules-demo { display: grid; gap: 16px; padding: 32px; background: var(--bg-surface); border-radius: var(--radius); }
+.rules-demo .label { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+.rules-demo .ruleline { height: 1px; }
+.rules-demo .r1 { background: var(--rule); }
+.rules-demo .r2 { background: var(--rule-strong); }
+
+.demos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.demo { padding: 24px; background: var(--bg-surface); border: 1px solid var(--rule); border-radius: var(--radius); }
+.demo .ratio { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+.demo .sample { font-size: 16px; margin-bottom: 16px; line-height: 1.5; }
+.demo .verdict { font-family: var(--font-mono); font-size: 11px; padding: 4px 10px; border-radius: var(--radius-sm); display: inline-block; text-transform: uppercase; letter-spacing: 0.06em; }
+.v-pass { background: var(--success-soft); color: var(--success); }
+.v-warn { background: var(--warning-soft); color: var(--warning); }
+.v-fail { background: var(--error-soft); color: var(--error); }
+
+.sem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.sem-card { padding: 20px; border-radius: var(--radius); border: 1px solid; }
+.sem-card .lbl { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+.sem-card .text { font-size: 14px; line-height: 1.5; }
+.sem-success { background: var(--success-soft); border-color: var(--success); color: var(--success); }
+.sem-warning { background: var(--warning-soft); border-color: var(--warning); color: var(--warning); }
+.sem-error { background: var(--error-soft); border-color: var(--error); color: var(--error); }
+
+.comp { padding: 32px; background: var(--bg-surface); border-radius: var(--radius); border: 1px solid var(--rule); margin-bottom: 16px; }
+.comp .head-c { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; padding: 0; border: 0; }
+.comp .head-c h3 { font-size: 16px; font-weight: 500; margin: 0; }
+.comp .head-c .ref { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; }
+.comp .stage { padding: 32px 24px; background: var(--bg-canvas); border-radius: var(--radius-sm); border: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+
+.btn { background: var(--accent); color: var(--accent-on); border: 1px solid var(--accent); padding: 10px 18px; border-radius: var(--radius); font-family: var(--font-sans); font-weight: 500; font-size: 14px; cursor: pointer; }
+.btn:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn-ghost { background: transparent; color: var(--accent-deep); border: 1px solid var(--rule); padding: 10px 18px; border-radius: var(--radius); font-family: var(--font-sans); font-weight: 500; font-size: 14px; cursor: pointer; }
+[data-theme="dark"] .btn-ghost, :root:not([data-theme="light"]) .btn-ghost { color: var(--accent); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .btn-ghost { color: var(--accent); }
+}
+.btn-ghost:hover { background: var(--bg-hover); }
+.input { background: var(--bg-canvas); color: var(--text-1); border: 1px solid var(--rule); padding: 10px 14px; border-radius: var(--radius); font-family: var(--font-sans); font-size: 14px; min-width: 240px; }
+.input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.card-demo { background: var(--bg-surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 20px 24px; max-width: 320px; }
+.card-demo h4 { font-size: 16px; font-weight: 500; margin: 0 0 6px; }
+.card-demo p { font-size: 14px; color: var(--text-2); line-height: 1.6; margin: 0; }
+
+pre { background: var(--bg-well); border: 1px solid var(--rule); border-radius: var(--radius); padding: 16px 20px; font-family: var(--font-mono); font-size: 13px; line-height: 1.6; color: var(--text-1); overflow-x: auto; margin: 0 0 16px; }
+code { font-family: var(--font-mono); font-size: 0.9em; padding: 1px 5px; background: var(--bg-well); border-radius: 4px; color: var(--text-1); }
+pre code { padding: 0; background: transparent; }
+
+.donts { display: grid; gap: 10px; }
+.dont { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; padding: 14px 18px; background: var(--bg-surface); border-left: 3px solid var(--error); border-radius: 0 var(--radius) var(--radius) 0; }
+.dont .x { color: var(--error); font-weight: 500; font-family: var(--font-mono); font-size: 13px; line-height: 1.6; }
+.dont .text { font-size: 14px; line-height: 1.6; color: var(--text-2); }
+.dont .text strong { color: var(--text-1); font-weight: 500; }
+
+footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .anchor { grid-template-columns: 1fr; }
+  .tref, .demos, .sem-grid { grid-template-columns: 1fr; }
+  .surfaces { grid-template-columns: repeat(2, 1fr); }
+  section > h2 { font-size: 28px; }
+  .type-stack .row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="head">
+  <div>
+    <h1>OAK Media Works</h1>
+    <div class="sub">brand canon · v1 · 2026-05-06</div>
+  </div>
+  <div class="toggle" role="group" aria-label="Theme">
+    <button data-mode="light" aria-pressed="false">Light</button>
+    <button data-mode="dark" aria-pressed="false">Dark</button>
+    <button data-mode="auto" aria-pressed="true">Auto</button>
+  </div>
+</header>
+
+<section>
+  <div class="num">01 — Anchor</div>
+  <h2>Denim Blue.</h2>
+  <p class="lede">A working blue. Lived-in, designer-led, not French-institutional. The single anchor color from which the rest of the system tunes.</p>
+  <div class="anchor">
+    <div class="swatch"></div>
+    <div>
+      <p class="name">Denim Blue</p>
+      <p class="hex">#4E85DF · <code>--brand-denim</code></p>
+      <p class="why">Sits naturally on warm cream paper; lifts cleanly on coffee dark. The tier is built so the canonical hex appears in both modes — light uses it as <code>--accent</code>, dark preserves it in <code>--accent-deep</code> for fills, halos, and chart bands.</p>
+      <p class="history">Previously Klein Blue (#002FA7). Switched 2026-05-06 — Klein read too clinical against the cream surface. Denim is warmer, more approachable, still distinctly OAK.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="num">02 — Token reference</div>
+  <h2>The accent tier.</h2>
+  <p class="lede">Five tokens per mode. Pick by intent, not aesthetic. The rest of the system inherits from these.</p>
+  <div class="tref">
+    <div>
+      <h3>Light</h3>
+      <div class="table">
+        <div class="row"><div class="sw" style="background:#4E85DF;"></div><div class="var">--accent</div><div class="hex">#4E85DF</div></div>
+        <div class="row"><div class="sw" style="background:#6E9CE8;"></div><div class="var">--accent-hover</div><div class="hex">#6E9CE8</div></div>
+        <div class="row"><div class="sw" style="background:#2E66C7;"></div><div class="var">--accent-deep</div><div class="hex">#2E66C7</div></div>
+        <div class="row"><div class="sw" style="background:#E6EDF9;"></div><div class="var">--accent-soft</div><div class="hex">#E6EDF9</div></div>
+        <div class="row"><div class="sw" style="background:#FFFFFF; border-color:#B8AE96;"></div><div class="var">--accent-on</div><div class="hex">#FFFFFF</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Dark</h3>
+      <div class="table">
+        <div class="row"><div class="sw" style="background:#6E9CE8;"></div><div class="var">--accent</div><div class="hex">#6E9CE8</div></div>
+        <div class="row"><div class="sw" style="background:#8FB5F0;"></div><div class="var">--accent-hover</div><div class="hex">#8FB5F0</div></div>
+        <div class="row"><div class="sw" style="background:#4E85DF;"></div><div class="var">--accent-deep</div><div class="hex">#4E85DF</div></div>
+        <div class="row"><div class="sw" style="background:#1A2440;"></div><div class="var">--accent-soft</div><div class="hex">#1A2440</div></div>
+        <div class="row"><div class="sw" style="background:#F2EBE0; border-color:#B8AE96;"></div><div class="var">--accent-on</div><div class="hex">#F2EBE0</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="num">03 — Surfaces</div>
+  <h2>Cream paper or coffee dark.</h2>
+  <p class="lede">Light is cream paper, not white. Dark is coffee, not pure black. Both warm. Toggle the page mode at top to see each tier render live below.</p>
+  <div class="surfaces">
+    <div class="card surf-canvas"><div class="label">canvas</div><div class="hex" id="hex-canvas">var(--bg-canvas)</div></div>
+    <div class="card surf-surface"><div class="label">surface</div><div class="hex" id="hex-surface">var(--bg-surface)</div></div>
+    <div class="card surf-well"><div class="label">well</div><div class="hex" id="hex-well">var(--bg-well)</div></div>
+    <div class="card surf-hover"><div class="label">hover</div><div class="hex" id="hex-hover">var(--bg-hover)</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="num">04 — Type</div>
+  <h2>Satoshi + JetBrains Mono.</h2>
+  <p class="lede">Two weights only — 400 regular, 500 bold. Tabular numerals for any aligned numeric column.</p>
+  <div class="type-stack">
+    <div class="row"><div class="meta">h1 · 36/500</div><div class="t-h1">The quick brown fox</div></div>
+    <div class="row"><div class="meta">h2 · 24/500</div><div class="t-h2">The quick brown fox</div></div>
+    <div class="row"><div class="meta">h3 · 18/500</div><div class="t-h3">The quick brown fox</div></div>
+    <div class="row"><div class="meta">body · 16/400</div><div class="t-body">The quick brown fox jumps over the lazy dog. Used for primary content — body copy, descriptions, prose.</div></div>
+    <div class="row"><div class="meta">body-2 · 14/400</div><div class="t-body-2">Secondary copy — supporting text, captions, metadata that needs to read but not lead.</div></div>
+    <div class="row"><div class="meta">meta · 12 · text-3</div><div class="t-meta-text">Tertiary — timestamps, footnotes, the smallest legible scale.</div></div>
+    <div class="row"><div class="meta">mono · 13</div><div class="t-mono">--accent: #4E85DF</div></div>
+    <div class="row"><div class="meta">tabular-nums</div><div class="t-num">$1,247.50<br>$  892.00<br>$  104.25<br>$2,243.75</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="num">05 — Rules</div>
+  <h2>Warm coffee. No grays.</h2>
+  <p class="lede">Borders and dividers hit WCAG 1.4.11 (3:1 against canvas) in warm coffee tones. Cool grays on warm surfaces look broken — banished.</p>
+  <div class="rules-demo">
+    <div>
+      <div class="label">--rule · default divider</div>
+      <div class="ruleline r1"></div>
+    </div>
+    <div>
+      <div class="label">--rule-strong · emphasis</div>
+      <div class="ruleline r2"></div>
+    </div>
+  </div>
+  <p style="font-size: 13px; line-height: 1.6; color: var(--text-3); max-width: 600px; margin-top: 16px;">If a layout feels over-lined, swap to <code>var(--bg-well)</code> recesses for purely decorative separation; reserve rules for component boundaries.</p>
+</section>
+
+<section>
+  <div class="num">06 — Contrast</div>
+  <h2>Read this before you ship.</h2>
+  <p class="lede">Denim is lighter than Klein. That has consequences. Use the right token for the size and weight of the text.</p>
+  <div class="demos">
+    <div class="demo">
+      <div class="ratio">--accent-deep on canvas · 4.6:1</div>
+      <div class="sample"><a href="#" style="color: var(--accent-deep);">This is a body link</a> sitting inline in normal-weight prose copy.</div>
+      <span class="verdict v-pass">AA · normal text</span>
+    </div>
+    <div class="demo">
+      <div class="ratio">--accent on canvas · 3.1:1</div>
+      <div class="sample"><a href="#" style="color: var(--accent);">This is a body link</a> sitting inline — but it fails AA for normal text.</div>
+      <span class="verdict v-warn">AA Large only</span>
+    </div>
+    <div class="demo">
+      <div class="ratio">white on --accent fill · 3.7:1</div>
+      <div class="sample"><button class="btn">Primary action</button></div>
+      <span class="verdict v-warn">AA Large only · OK for ≥14px semibold</span>
+    </div>
+    <div class="demo">
+      <div class="ratio">--text-1 on canvas · 13:1+</div>
+      <div class="sample">Body copy is always <code>--text-1</code> on <code>--bg-canvas</code> — comfortable AAA in both modes.</div>
+      <span class="verdict v-pass">AAA</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="num">07 — Semantic</div>
+  <h2>Status colors, mode-aware.</h2>
+  <p class="lede">Three states. Don't substitute alternative greens or reds — these are tuned for both surfaces.</p>
+  <div class="sem-grid">
+    <div class="sem-card sem-success">
+      <div class="lbl">success</div>
+      <div class="text">Saved · uploaded · published.</div>
+    </div>
+    <div class="sem-card sem-warning">
+      <div class="lbl">warning</div>
+      <div class="text">Quota at 90% · review before continuing.</div>
+    </div>
+    <div class="sem-card sem-error">
+      <div class="lbl">error</div>
+      <div class="text">Upload failed · check the file format.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="num">08 — Components</div>
+  <h2>The core kit.</h2>
+  <p class="lede">Every OAK app starts with these. Built directly from the tokens — change a token and every instance updates.</p>
+
+  <div class="comp">
+    <div class="head-c"><h3>Primary button</h3><span class="ref">.btn · --accent / --accent-on</span></div>
+    <div class="stage">
+      <button class="btn">Primary action</button>
+      <button class="btn">Save and continue</button>
+    </div>
+  </div>
+
+  <div class="comp">
+    <div class="head-c"><h3>Ghost button</h3><span class="ref">.btn-ghost · --accent-deep / --rule</span></div>
+    <div class="stage">
+      <button class="btn-ghost">Secondary action</button>
+      <button class="btn-ghost">Cancel</button>
+    </div>
+  </div>
+
+  <div class="comp">
+    <div class="head-c"><h3>Input</h3><span class="ref">.input · --accent on focus</span></div>
+    <div class="stage">
+      <input class="input" type="text" placeholder="email@example.com">
+    </div>
+  </div>
+
+  <div class="comp">
+    <div class="head-c"><h3>Card</h3><span class="ref">--bg-surface · --rule · --radius</span></div>
+    <div class="stage">
+      <div class="card-demo">
+        <h4>Quarterly summary</h4>
+        <p>Twelve releases shipped this quarter. Cycle time down 14%, defect rate flat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="num">09 — How to use</div>
+  <h2>Drop it into any OAK app.</h2>
+  <p class="lede">Pull tokens from canon, set the theme attribute, use variables. No hardcoded hex anywhere in your app — that's the whole point.</p>
+
+  <pre><code>&lt;!-- In your app's &lt;head&gt; --&gt;
+&lt;link rel="stylesheet" href="https://oakmediaworks.com/oak-tokens.css"&gt;
+
+&lt;!-- Mode control on the html element --&gt;
+&lt;html data-theme="dark"&gt;   &lt;!-- explicit dark --&gt;
+&lt;html data-theme="light"&gt;  &lt;!-- explicit light --&gt;
+&lt;html&gt;                     &lt;!-- follow OS preference --&gt;</code></pre>
+
+  <pre><code>/* In your component CSS — always reach for tokens, never hex */
+.my-card {
+  background: var(--bg-surface);
+  color: var(--text-1);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+}
+
+.my-link {
+  color: var(--accent-deep);   /* AA on cream */
+}
+
+.my-button {
+  background: var(--accent);
+  color: var(--accent-on);
+}</code></pre>
+
+  <p style="font-size: 13px; line-height: 1.6; color: var(--text-3); max-width: 600px;">If your app needs to vendor the file (offline, build-time bundling), copy <code>oak-tokens.css</code> from the <a href="https://github.com/OAKMEDIAWORKS/oakmediaworks-site">canon repo</a>. When canon updates, re-pull. Don't fork token values into your app — keep this repo as the single source.</p>
+</section>
+
+<section>
+  <div class="num">10 — Don'ts</div>
+  <h2>Ways to get noticed.</h2>
+  <p class="lede">These are the violations that get caught in review. Internalize them.</p>
+  <div class="donts">
+    <div class="dont"><span class="x">×</span><div class="text"><strong>Don't reintroduce Klein Blue.</strong> It's retired. The hex is #002FA7 — if you see it in a diff, replace it.</div></div>
+    <div class="dont"><span class="x">×</span><div class="text"><strong>Don't reintroduce green to brand surfaces.</strong> Greens were systematically removed from landing/pricing in favor of the brand blue. Semantic green stays for success states only.</div></div>
+    <div class="dont"><span class="x">×</span><div class="text"><strong>Don't reach for pure grays.</strong> Warm coffee tones only. Cool grays on warm surfaces look broken.</div></div>
+    <div class="dont"><span class="x">×</span><div class="text"><strong>Don't put body links on <code>--accent</code>.</strong> Use <code>--accent-deep</code> on cream — AA-compliant for normal text. Reserve <code>--accent</code> for fills and ≥14px semibold.</div></div>
+    <div class="dont"><span class="x">×</span><div class="text"><strong>Don't use <code>#000</code> or <code>#FFF</code> on any surface.</strong> The text and surface tiers handle both modes correctly — pure black and pure white break the temperature.</div></div>
+    <div class="dont"><span class="x">×</span><div class="text"><strong>Don't hardcode hex values in app CSS.</strong> Always reach for the variable. If the token doesn't exist, the token system needs to grow — file an issue against this repo.</div></div>
+  </div>
+</section>
+
+<footer>
+  <div>OAK Media Works · brand canon</div>
+  <div><a href="https://github.com/OAKMEDIAWORKS/oakmediaworks-site">github · oakmediaworks-site</a></div>
+</footer>
+
+</div>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll('.toggle button');
+  function apply(mode) {
+    if (mode === 'auto') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', mode);
+    buttons.forEach(function(b) {
+      b.setAttribute('aria-pressed', b.dataset.mode === mode ? 'true' : 'false');
+    });
+  }
+  buttons.forEach(function(b) {
+    b.addEventListener('click', function() { apply(b.dataset.mode); });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,109 +1,61 @@
-# OAK Media Works — brand canon
+# OAK Lens — Demo Prep Handoff
 
-The public, canonical home for OAK Media Works design tokens. Anything calling itself OAK should match what's in this repo. In case of conflict, this repo wins.
+**What this folder is:** the complete handoff package for OAK Lens front-end demo prep. Audit findings, design decisions, build plan, and supporting assets — produced Saturday 2026-05-02 by Kit Anderson + Claude (browser-driven audit session) and dropped here for execution by the Claude agent in Tim's project folder.
 
-## Anchor
-
-**Denim Blue** — `#4E85DF`
-
-A working blue. Lived-in, designer-led, not French-institutional. Sits naturally on warm cream paper; lifts cleanly on coffee dark. The tier is built so the canonical hex appears in both modes — light uses it as `--accent`, dark preserves it in `--accent-deep` for fills and chart bands.
-
-> Previously Klein Blue (`#002FA7`). Switched 2026-05-06 — Klein read too clinical against the cream surface. Denim is warmer, more approachable, still distinctly OAK.
-
-## Tokens
-
-Drop [`oak-tokens.css`](./oak-tokens.css) into your global CSS. Apply `[data-theme="dark"]` on `<html>` to opt into dark; remove for light.
-
-### Light (default)
-
-| Token | Hex | Use |
-|---|---|---|
-| `--accent` | `#4E85DF` | Primary actions, focus rings, fills behind ≥14px semibold text |
-| `--accent-hover` | `#6E9CE8` | Hover state |
-| `--accent-deep` | `#2E66C7` | **Body links, small text** — AA on cream |
-| `--accent-soft` | `#E6EDF9` | Selected rows, hover washes |
-| `--accent-on` | `#FFFFFF` | Text/icons on accent fills |
-
-### Dark
-
-| Token | Hex | Use |
-|---|---|---|
-| `--accent` | `#6E9CE8` | Primary actions — lifted for legibility |
-| `--accent-hover` | `#8FB5F0` | Hover state |
-| `--accent-deep` | `#4E85DF` | Canonical denim — fills behind light text, halos, chart bands |
-| `--accent-soft` | `#1A2440` | Wash on dark surfaces |
-| `--accent-on` | `#F2EBE0` | Text/icons on accent fills |
-
-## Contrast — read this before you ship
-
-Denim is lighter than Klein. That has consequences.
-
-- **`--accent` on cream is 3.1:1.** WCAG AA Large only. Use for buttons (≥14px semibold), display type, and chrome. **Don't put body copy or small links on it.**
-- **`--accent-deep` on cream is 4.6:1.** AA for normal text. **This is your body-link color.** Reach for `var(--accent-deep)` on `<a>` tags in prose; reserve `var(--accent)` for emphasis fills and primary actions.
-- **White on `--accent` is 3.7:1.** Fine for `.btn-primary` at 14px semibold (the pattern the token sheet ships). If you ever go thinner or smaller, switch `--accent-on` to `#1A1612`.
-
-## Rules — warm coffee, no grays
-
-Borders and dividers hit WCAG 1.4.11 (3:1 against canvas) in warm coffee tones. Cool grays on warm surfaces look broken — banished.
-
-| Token | Light | Dark |
-|---|---|---|
-| `--rule` | `#8C7B5C` (3.5:1 on cream) | `#7B6A4F` (3.6:1 on coffee) |
-| `--rule-strong` | `#6B5A40` (5.6:1) | `#9C8A6B` (5.6:1) |
-
-`--rule` is visually present. That's deliberate — old hairlines were 1.3:1 and effectively invisible. If a layout feels over-lined, swap to `var(--bg-well)` recesses for purely decorative separation; reserve `--rule` for component boundaries.
-
-## Surfaces — cream + coffee
-
-Light is **cream paper**, not white. Dark is **coffee**, not pure black. Both warm. Never use pure white or pure black surfaces — they break the temperature.
-
-```
-LIGHT                          DARK
-canvas   #F2EBE0                canvas   #161311
-surface  #F8F2E8                surface  #1E1A16
-well     #E8DFCC                well     #0E0C0A
-hover    #ECE4D2                hover    #25201B
-```
-
-Text tier mirrors the warmth — never plain `#000` or `#FFF`:
-
-```
-LIGHT                          DARK
-text-1   #1A1612                text-1   #F2EBE0
-text-2   #4F463C                text-2   #A8A095
-text-3   #8A8278                text-3   #6E665C
-```
-
-## Type
-
-- **Sans:** Satoshi, with system fallbacks
-- **Mono:** JetBrains Mono
-- **Tabular numerals:** apply `font-variant-numeric: var(--num-tabular)` to numeric columns — dollar amounts, scores, counts, timestamps. The `.num`, `[data-num]`, `.tabular`, and `td.num` selectors get it for free.
-
-## Semantic
-
-Status colors are mode-aware. Keep them — don't swap to other greens/reds.
-
-```
-                  LIGHT     DARK
---success         #177D4D   #34C77B
---warning         #B5640A   #E89A48
---error           #A8201F   #E15553
-```
-
-## Visual reference
-
-[`oak-brand-guide.html`](./oak-brand-guide.html) — every token in both modes, side by side. Open it in a browser when you need to eyeball the system.
-
-## Don'ts
-
-- Don't reintroduce Klein Blue. It's retired.
-- Don't reintroduce green to the brand surface — greens were systematically removed from landing/pricing in favor of the brand blue.
-- Don't reach for pure grays. Warm coffee only.
-- Don't put body links on `--accent`. Use `--accent-deep`.
-- Don't put text smaller than 14px on `--accent` fills. Lift weight or switch to `--accent-deep`.
-- Don't use pure `#000` or `#FFF` on any surface. The text tier handles both modes correctly.
+**Demo target:** Monday 2026-05-04. Hak (President of Digital Marketing, Grandstand) test-drives the live OAK Lens app at `oaklens.io` on a tenant pre-seeded with Grandstand's actual roster (6 artists / 616 videos / 8.1B views). Stakes: $250M Sequoia-backed AI roll-up acquisition conversation. The product currently works at deal-closing-grade; the polish target is removing tells that signal "shipped fast" without restructuring anything that's working.
 
 ---
 
-Marketing site → [oakmediaworks.com](https://oakmediaworks.com) · deploy → [landing-mocha-mu.vercel.app](https://landing-mocha-mu.vercel.app)
+## Files in this folder, in reading order
+
+### 1. `LENS_AUDIT_FRONT_END.md`  (read first)
+
+The punch list. Every visible look-and-feel issue identified during the audit, ranked by tier (Tier 1 critical / Tier 2 high-leverage / Tier 3 polish), with cross-app patterns and per-page reference tables. Locked design decisions are baked in: Klein Blue accent tier, Satoshi + JetBrains Mono typography, custom SVG icon set, dual-mode token system. The CSS tokens, font import, and SVG markup are inlined for direct drop-in.
+
+### 2. `LENS_BUILD_PLAN.md`  (read second)
+
+The autonomous execution plan covering Phases 1–5, 7, 8. Tim's Claude runs this without humans. Self-validation gates between phases. Pre-baked decisions (dark mode default, Phase 5 always-attempt, engagement column relabel = Tim's Claude decides) eliminate the need to ping Kit during the build. Phase 6 is deferred to the sprint doc.
+
+### 3. `LENS_TIM_SPRINT.md`  (read before Phase 6 work begins)
+
+The Phase 6 backend sprint. Six items that touch backend logic, database writes, LLM API calls, or auth scoping — each requires Tim's explicit approval before code lands. Approval-request format spec'd at the top so Tim's Claude knows exactly what to present to Tim. Skip-the-sprint contingency documented at the bottom.
+
+### 4. `oaklens-tokens.css`  (drop-in source)
+
+Self-contained CSS file with the full dual-mode token system (light cream paper + warm coffee dark). Identical content to §1 of `LENS_AUDIT_FRONT_END.md`. Provided as a separate file in case dropping a CSS file directly is easier than copy-pasting from markdown.
+
+### 5. `oaklens-icon-preview.html`  (visual reference)
+
+Standalone HTML preview of the 9 SVG icons in their card containers, plus a side-by-side comparison of the current emoji set vs the proposed SVG set. Open in a browser to see the icons rendered. Identical SVG markup is inlined in §3 of `LENS_AUDIT_FRONT_END.md`.
+
+---
+
+## Reading order for an agent picking this up cold
+
+1. This README.
+2. `LENS_AUDIT_FRONT_END.md` — understand the full punch list and design decisions.
+3. `LENS_BUILD_PLAN.md` — understand the autonomous execution plan.
+4. `LENS_TIM_SPRINT.md` — only when Phase 5 self-validation passes and the Phase 6 approval gate is reached.
+
+The HTML and CSS files are referenced from the markdown — open them when the markdown points there.
+
+---
+
+## Roles
+
+- **Tim's Claude** — sole executor for the build. Runs Phases 1–5, 7, 8 autonomously per `LENS_BUILD_PLAN.md`. Halts at the Phase 6 approval gate to engage Tim per `LENS_TIM_SPRINT.md`.
+- **Tim** — only human in the loop. Approves Phase 6 work before any backend code lands. Resolves boundary-item escalations and runtime calls Tim's Claude can't decide from the spec.
+- **Kit** — out of the loop after handoff. Provided these documents as the input; hands-off after that.
+
+---
+
+## Status (as of 2026-05-02 evening)
+
+- Audit complete. All 11 routes audited from both superadmin and tenant-admin perspectives.
+- Design decisions locked: accent (Klein Blue tier), typography (Satoshi + JetBrains Mono), iconography (9-icon SVG set + 3 trajectory icons), background (dark warm coffee default with light cream paper available).
+- Build plan and Tim sprint docs delivered.
+- Awaiting Sunday execution per the time-of-day schedule in `LENS_BUILD_PLAN.md`.
+
+---
+
+End of README.
