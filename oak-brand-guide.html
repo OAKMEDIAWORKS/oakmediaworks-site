@@ -121,6 +121,17 @@ pre code { padding: 0; background: transparent; }
 .dont .text { font-size: 14px; line-height: 1.6; color: var(--text-2); }
 .dont .text strong { color: var(--text-1); font-weight: 500; }
 
+.mark-display { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+.mark-stage { padding: 48px 32px; border-radius: var(--radius); border: 1px solid var(--rule); display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.mark-stage.light { background: #F2EBE0; }
+.mark-stage.dark { background: #161311; }
+.mark-stage img { width: 180px; height: 180px; display: block; }
+.mark-stage .label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+.mark-stage.light .label { color: #4F463C; }
+.mark-stage.dark .label { color: #A8A095; }
+.mark-notes { font-size: 14px; line-height: 1.65; color: var(--text-2); max-width: 600px; margin: 0 0 16px; }
+.mark-notes.muted { color: var(--text-3); margin-bottom: 0; }
+
 footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; gap: 16px; flex-wrap: wrap; }
 
 @media (max-width: 760px) {
@@ -163,7 +174,28 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 </section>
 
 <section>
-  <div class="num">02 — Token reference</div>
+  <div class="num">02 — Mark</div>
+  <h2>Cone, leaf, acorn.</h2>
+  <p class="lede">A megaphone (Media Works), an oak leaf (OAK), and an acorn cup (heritage). Three ideas compressed into one mark. Locked v1, 2026-05-06.</p>
+
+  <div class="mark-display">
+    <div class="mark-stage light">
+      <img src="oak-mark.svg" alt="OAK Media Works mark on cream">
+      <div class="label">Light · cream canvas</div>
+    </div>
+    <div class="mark-stage dark">
+      <img src="oak-mark.svg" alt="OAK Media Works mark on coffee">
+      <div class="label">Dark · coffee canvas</div>
+    </div>
+  </div>
+
+  <p class="mark-notes">Cone in <code>--accent</code> (<code>#4E85DF</code>), leaf and acorn in <code>--accent-deep</code> (<code>#2E66C7</code>), with cream <code>--bg-canvas</code> (<code>#F2EBE0</code>) carried as built-in paper. The cream backplate makes the mark substrate-agnostic — works on cream, on coffee, on any photo or third-party platform.</p>
+
+  <p class="mark-notes muted">Pending: wordmark partner. Icon-only mark is locked; full lockup with the OAK Media Works wordmark is the next deliverable.</p>
+</section>
+
+<section>
+  <div class="num">03 — Token reference</div>
   <h2>The accent tier.</h2>
   <p class="lede">Five tokens per mode. Pick by intent, not aesthetic. The rest of the system inherits from these.</p>
   <div class="tref">
@@ -191,7 +223,7 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 </section>
 
 <section>
-  <div class="num">03 — Surfaces</div>
+  <div class="num">04 — Surfaces</div>
   <h2>Cream paper or coffee dark.</h2>
   <p class="lede">Light is cream paper, not white. Dark is coffee, not pure black. Both warm. Never <code>#FFF</code> or <code>#000</code> on any surface — they break the temperature.</p>
   <div class="tref">
@@ -217,7 +249,7 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 </section>
 
 <section>
-  <div class="num">04 — Type</div>
+  <div class="num">05 — Type</div>
   <h2>Satoshi + JetBrains Mono.</h2>
   <p class="lede">Two weights only — 400 regular, 500 bold. Three text tiers per mode. Tabular numerals for any aligned numeric column.</p>
   <div class="tref" style="margin-bottom: 32px;">
@@ -253,7 +285,7 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 </section>
 
 <section>
-  <div class="num">05 — Rules</div>
+  <div class="num">06 — Rules</div>
   <h2>Warm coffee. No grays.</h2>
   <p class="lede">Borders and dividers hit WCAG 1.4.11 (3:1 against canvas) in warm coffee tones. Cool grays on warm surfaces look broken — banished.</p>
   <div class="tref" style="margin-bottom: 24px;">
@@ -286,7 +318,7 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 </section>
 
 <section>
-  <div class="num">06 — Contrast</div>
+  <div class="num">07 — Contrast</div>
   <h2>Read this before you ship.</h2>
   <p class="lede">Denim is lighter than Klein. That has consequences. Use the right token for the size and weight of the text.</p>
   <div class="demos">
@@ -314,7 +346,7 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 </section>
 
 <section>
-  <div class="num">07 — Semantic</div>
+  <div class="num">08 — Semantic</div>
   <h2>Status colors, mode-aware.</h2>
   <p class="lede">Three states. Don't substitute alternative greens or reds — these are tuned for both surfaces.</p>
   <div class="tref" style="margin-bottom: 24px;">
@@ -352,7 +384,7 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 </section>
 
 <section>
-  <div class="num">08 — Components</div>
+  <div class="num">09 — Components</div>
   <h2>The core kit.</h2>
   <p class="lede">Every OAK app starts with these. Built directly from the tokens — change a token and every instance updates.</p>
 
@@ -391,7 +423,7 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 </section>
 
 <section>
-  <div class="num">09 — How to use</div>
+  <div class="num">10 — How to use</div>
   <h2>Drop it into any OAK app.</h2>
   <p class="lede">Pull tokens from canon, set the theme attribute, use variables. No hardcoded hex anywhere in your app — that's the whole point.</p>
 
@@ -424,7 +456,7 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 </section>
 
 <section>
-  <div class="num">10 — Don'ts</div>
+  <div class="num">11 — Don'ts</div>
   <h2>Ways to get noticed.</h2>
   <p class="lede">These are the violations that get caught in review. Internalize them.</p>
   <div class="donts">
