@@ -1,0 +1,164 @@
+<!doctype html>
+<!--
+  OAK app · starter template
+  ---------------------------
+  Copy this file as the starting point for any new OAK Media Works app.
+  Keep oak-tokens.css imported from canon — never fork the values into
+  your app. If you need a color the system doesn't have, file an issue
+  against github.com/OAKMEDIAWORKS/oakmediaworks-site rather than
+  inventing one.
+
+  What this gives you:
+    · Canon tokens loaded — color, type, surfaces, rules, semantic,
+      spacing, motion, z-index, radii, shadows
+    · Light/dark/auto theme toggle (data-theme attribute on <html>)
+    · Body baseline — Satoshi sans, warm cream/coffee surfaces
+    · Working examples of link, button, card
+    · Web pack favicons referenced (drop the files in your public/ root)
+
+  Replace everything inside <main> with your app.
+  Read the brand canon — including the Anti-tropes section — before
+  shipping anything new.
+
+  Drop these files from canon into your public/ root so the icon
+  links resolve: oak-mark.svg, favicon.ico, favicon-16x16.png,
+  favicon-32x32.png, apple-touch-icon.png, android-chrome-192x192.png,
+  android-chrome-512x512.png, site.webmanifest
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OAK app · starter</title>
+<meta name="description" content="Your app description here.">
+<meta name="theme-color" content="#4E85DF">
+
+<link rel="icon" type="image/svg+xml" href="/oak-mark.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Tokens from canon. Single source of truth. -->
+<link rel="stylesheet" href="https://oakmediaworks.com/oak-tokens.css">
+
+<style>
+/* App-specific layout. Always reach for tokens — no hardcoded hex, no raw px. */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { padding: var(--space-xl); }
+.wrap { max-width: 720px; margin: 0 auto; padding: var(--space-4xl) 0 var(--space-3xl); }
+
+h1 { font-size: 32px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 var(--space-lg); }
+h2 { font-size: 20px; font-weight: 500; margin: var(--space-2xl) 0 var(--space-md); }
+p  { font-size: 16px; line-height: 1.65; color: var(--text-2); margin: 0 0 var(--space-lg); max-width: 600px; }
+
+/* Body links — --accent-deep on cream for AA, --accent on dark coffee. */
+a {
+  color: var(--accent-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+[data-theme="dark"] a, :root:not([data-theme="light"]) a { color: var(--accent); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) a { color: var(--accent); }
+}
+
+/* Primary button — fill = --accent, label = --accent-on. */
+.btn {
+  background: var(--accent);
+  color: var(--accent-on);
+  border: 1px solid var(--accent);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background var(--motion-fast) var(--ease-standard),
+              border-color var(--motion-fast) var(--ease-standard);
+}
+.btn:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+
+/* Card — surface, rule, radius, all from canon. */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: var(--space-lg) var(--space-xl);
+  margin: var(--space-xl) 0;
+  color: var(--text-1);
+}
+.card p { color: var(--text-1); margin: 0; }
+
+/* Theme toggle — pinned top-right. Optional; remove if your app
+   handles theming elsewhere. data-theme on <html> is what matters. */
+.theme-toggle {
+  position: fixed; top: var(--space-lg); right: var(--space-lg);
+  display: inline-flex; padding: 3px;
+  border: 1px solid var(--rule); border-radius: 999px;
+  background: var(--bg-canvas);
+  z-index: var(--z-fixed);
+}
+.theme-toggle button {
+  background: transparent; border: 0;
+  padding: 5px 12px; border-radius: 999px;
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--text-2); cursor: pointer;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  transition: background var(--motion-fast) var(--ease-standard),
+              color var(--motion-fast) var(--ease-standard);
+}
+.theme-toggle button[aria-pressed="true"] { background: var(--accent); color: var(--accent-on); }
+</style>
+</head>
+<body>
+
+<div class="theme-toggle" role="group" aria-label="Theme">
+  <button data-mode="light" aria-pressed="false">Light</button>
+  <button data-mode="dark" aria-pressed="false">Dark</button>
+  <button data-mode="auto" aria-pressed="true">Auto</button>
+</div>
+
+<main class="wrap">
+
+  <h1>Hello, OAK.</h1>
+
+  <p>You're looking at the OAK Media Works starter template. Tokens are loading live from canon — try the theme toggle. Read the <a href="https://oakmediaworks.com/oak-brand-guide.html">brand canon</a> before shipping anything new — particularly the <strong>Anti-tropes</strong> section.</p>
+
+  <h2>What's wired</h2>
+  <p>Color, type, surfaces, rules, semantic, spacing, motion, z-index, icons (Lucide spec) — all canon, all imported. Open this file's source — every styled element uses <code>var(--...)</code>, never hex, never raw px.</p>
+
+  <div class="card">
+    <p>This is a card. <code>--bg-surface</code> for fill, <code>--rule</code> for border, <code>--radius</code> for corners, <code>--space-lg</code>/<code>--space-xl</code> for padding. Change tokens in canon → every card in every OAK app updates.</p>
+  </div>
+
+  <h2>Your turn</h2>
+  <p>Replace everything inside <code>&lt;main&gt;</code> with your app. Keep the token import. Don't introduce hex values, raw px, or template-y patterns — if you need something the system doesn't have, the system needs to grow.</p>
+
+  <button class="btn">Primary action</button>
+
+</main>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll('.theme-toggle button');
+  function apply(mode) {
+    if (mode === 'auto') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', mode);
+    buttons.forEach(function(b) {
+      b.setAttribute('aria-pressed', b.dataset.mode === mode ? 'true' : 'false');
+    });
+  }
+  buttons.forEach(function(b) {
+    b.addEventListener('click', function() { apply(b.dataset.mode); });
+  });
+})();
+</script>
+
+</body>
+</html>
