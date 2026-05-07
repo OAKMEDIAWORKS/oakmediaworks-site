@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OAK Media Works — brand canon</title>
-<meta name="description" content="OAK Media Works canonical design tokens and brand guide. Anchor: Denim Blue #4E85DF.">
+<meta name="description" content="OAK Media Works canonical design tokens and brand guide. Anchor: Truckee Blue #4E85DF.">
 <link rel="stylesheet" href="oak-tokens.css">
 <style>
 *, *::before, *::after { box-sizing: border-box; }
@@ -32,7 +32,7 @@ section > h2 { font-size: 36px; font-weight: 500; letter-spacing: -0.02em; line-
 section > .lede { font-size: 16px; line-height: 1.65; color: var(--text-2); max-width: 600px; margin: 0 0 40px; }
 
 .anchor { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: center; padding: 40px; background: var(--bg-surface); border-radius: var(--radius-lg); }
-.anchor .swatch { aspect-ratio: 1; background: var(--brand-denim); border-radius: var(--radius); }
+.anchor .swatch { aspect-ratio: 1; background: var(--brand-truckee); border-radius: var(--radius); }
 .anchor .name { font-size: 28px; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 4px; }
 .anchor .hex { font-family: var(--font-mono); font-size: 14px; color: var(--text-2); margin: 0 0 24px; }
 .anchor .why { font-size: 15px; line-height: 1.65; color: var(--text-2); margin: 0; }
@@ -66,7 +66,7 @@ section > .lede { font-size: 16px; line-height: 1.65; color: var(--text-2); max-
 .t-body-2 { font-size: 14px; line-height: 1.6; color: var(--text-2); }
 .t-meta-text { font-size: 12px; color: var(--text-3); }
 .t-mono { font-family: var(--font-mono); font-size: 13px; }
-.t-num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 14px; letter-spacing: -0.01em; }
+.t-num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 14px; letter-spacing: -0.01em; text-align: right; display: inline-block; min-width: 140px; }
 
 .rules-demo { display: grid; gap: 16px; padding: 32px; background: var(--bg-surface); border-radius: var(--radius); }
 .rules-demo .label { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
@@ -115,6 +115,27 @@ pre { background: var(--bg-well); border: 1px solid var(--rule); border-radius: 
 code { font-family: var(--font-mono); font-size: 0.9em; padding: 1px 5px; background: var(--bg-well); border-radius: 4px; color: var(--text-1); }
 pre code { padding: 0; background: transparent; }
 
+.space-table { background: var(--bg-surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 20px; }
+.space-row { display: grid; grid-template-columns: 140px 80px 60px 1fr; gap: 16px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.space-row:last-child { border-bottom: 0; }
+.space-row .name { font-family: var(--font-mono); font-size: 13px; color: var(--text-1); }
+.space-row .bar { height: 10px; background: var(--accent); border-radius: 2px; }
+.space-row .val { font-family: var(--font-mono); font-size: 12px; color: var(--text-2); }
+.space-row .use { font-size: 13px; color: var(--text-2); }
+
+.spec-table { background: var(--bg-surface); border: 1px solid var(--rule); border-radius: var(--radius); margin-bottom: 16px; overflow: hidden; }
+.spec-row { display: grid; grid-template-columns: 200px 240px 1fr; gap: 16px; align-items: center; padding: 10px 16px; border-bottom: 1px solid var(--rule); }
+.spec-row:last-child { border-bottom: 0; }
+.spec-row .var { font-family: var(--font-mono); font-size: 13px; color: var(--text-1); }
+.spec-row .val { font-family: var(--font-mono); font-size: 12px; color: var(--text-2); }
+.spec-row .use { font-size: 13px; color: var(--text-2); }
+.subsection { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin: 24px 0 12px; font-weight: 500; }
+
+.form-demo { display: grid; gap: 6px; max-width: 360px; }
+.form-demo label { font-size: 13px; font-weight: 500; color: var(--text-1); }
+.form-demo .helper { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+.form-demo .err { font-size: 12px; color: var(--error); margin-top: 2px; }
+
 .donts { display: grid; gap: 10px; }
 .dont { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; padding: 14px 18px; background: var(--bg-surface); border-left: 3px solid var(--error); border-radius: 0 var(--radius) var(--radius) 0; }
 .dont .x { color: var(--error); font-weight: 500; font-family: var(--font-mono); font-size: 13px; line-height: 1.6; }
@@ -160,15 +181,15 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 
 <section>
   <div class="num">01 — Anchor</div>
-  <h2>Denim Blue.</h2>
+  <h2>Truckee Blue.</h2>
   <p class="lede">A working blue. Lived-in, designer-led, not French-institutional. The single anchor color from which the rest of the system tunes.</p>
   <div class="anchor">
     <div class="swatch"></div>
     <div>
-      <p class="name">Denim Blue</p>
-      <p class="hex">#4E85DF · <code>--brand-denim</code></p>
+      <p class="name">Truckee Blue</p>
+      <p class="hex">#4E85DF · <code>--brand-truckee</code></p>
       <p class="why">Sits naturally on warm cream paper; lifts cleanly on coffee dark. The tier is built so the canonical hex appears in both modes — light uses it as <code>--accent</code>, dark preserves it in <code>--accent-deep</code> for fills, halos, and chart bands.</p>
-      <p class="history">Previously Klein Blue (#002FA7). Switched 2026-05-06 — Klein read too clinical against the cream surface. Denim is warmer, more approachable, still distinctly OAK.</p>
+      <p class="history">Named for Truckee, California — the Sierra town just over the hill from Lake Tahoe. Switched from Klein Blue (#002FA7) on 2026-05-06: Klein read too clinical against the cream surface. Truckee Blue is warmer, more approachable, still distinctly OAK.</p>
     </div>
   </div>
 </section>
@@ -280,7 +301,7 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
     <div class="row"><div class="meta">body-2 · 14/400</div><div class="t-body-2">Secondary copy — supporting text, captions, metadata that needs to read but not lead.</div></div>
     <div class="row"><div class="meta">meta · 12 · text-3</div><div class="t-meta-text">Tertiary — timestamps, footnotes, the smallest legible scale.</div></div>
     <div class="row"><div class="meta">mono · 13</div><div class="t-mono">--accent: #4E85DF</div></div>
-    <div class="row"><div class="meta">tabular-nums</div><div class="t-num">$1,247.50<br>$  892.00<br>$  104.25<br>$2,243.75</div></div>
+    <div class="row"><div class="meta">tabular-nums</div><div class="t-num">$1,247.50<br>$892.00<br>$104.25<br>$2,243.75</div></div>
   </div>
 </section>
 
@@ -320,7 +341,7 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 <section>
   <div class="num">07 — Contrast</div>
   <h2>Read this before you ship.</h2>
-  <p class="lede">Denim is lighter than Klein. That has consequences. Use the right token for the size and weight of the text.</p>
+  <p class="lede">Truckee Blue is lighter than Klein. That has consequences. Use the right token for the size and weight of the text.</p>
   <div class="demos">
     <div class="demo">
       <div class="ratio">--accent-deep on canvas · 4.6:1</div>
@@ -420,10 +441,102 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
       </div>
     </div>
   </div>
+
+  <div class="comp">
+    <div class="head-c"><h3>Form composition</h3><span class="ref">label · input · helper · error</span></div>
+    <div class="stage">
+      <div class="form-demo">
+        <label for="email-demo">Work email</label>
+        <input id="email-demo" class="input" type="email" placeholder="you@oakmediaworks.com">
+        <div class="helper">We'll only use this for product updates.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section>
-  <div class="num">10 — How to use</div>
+  <div class="num">10 — Spacing</div>
+  <h2>Four-pixel base.</h2>
+  <p class="lede">Eight tokens, all multiples of four. Use them for any margin, padding, or gap. No raw px values in product CSS.</p>
+  <div class="space-table">
+    <div class="space-row"><div class="name">--space-xs</div><div class="bar" style="width: 4px;"></div><div class="val">4px</div><div class="use">Component-internal · icon/text gap</div></div>
+    <div class="space-row"><div class="name">--space-sm</div><div class="bar" style="width: 8px;"></div><div class="val">8px</div><div class="use">Tight clusters</div></div>
+    <div class="space-row"><div class="name">--space-md</div><div class="bar" style="width: 12px;"></div><div class="val">12px</div><div class="use">Default cluster gap</div></div>
+    <div class="space-row"><div class="name">--space-lg</div><div class="bar" style="width: 16px;"></div><div class="val">16px</div><div class="use">Card padding · form rows</div></div>
+    <div class="space-row"><div class="name">--space-xl</div><div class="bar" style="width: 24px;"></div><div class="val">24px</div><div class="use">Section-internal gaps</div></div>
+    <div class="space-row"><div class="name">--space-2xl</div><div class="bar" style="width: 32px;"></div><div class="val">32px</div><div class="use">Between sections</div></div>
+    <div class="space-row"><div class="name">--space-3xl</div><div class="bar" style="width: 48px;"></div><div class="val">48px</div><div class="use">Page-level breathing room</div></div>
+    <div class="space-row"><div class="name">--space-4xl</div><div class="bar" style="width: 64px;"></div><div class="val">64px</div><div class="use">Hero · major breaks</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="num">11 — Motion</div>
+  <h2>Animate intent, not noise.</h2>
+  <p class="lede">Animate state changes — hover, focus, active, expand/collapse. Don't animate scroll. The token sheet handles <code>prefers-reduced-motion</code> automatically with a global override.</p>
+
+  <h3 class="subsection">Durations</h3>
+  <div class="spec-table">
+    <div class="spec-row"><div class="var">--motion-fast</div><div class="val">120ms</div><div class="use">Hover · active · tap</div></div>
+    <div class="spec-row"><div class="var">--motion-base</div><div class="val">200ms</div><div class="use">Default — most transitions</div></div>
+    <div class="spec-row"><div class="var">--motion-slow</div><div class="val">320ms</div><div class="use">Modal/sheet entry · accordion</div></div>
+    <div class="spec-row"><div class="var">--motion-slower</div><div class="val">500ms</div><div class="use">Page transitions · hero motion</div></div>
+  </div>
+
+  <h3 class="subsection">Easings</h3>
+  <div class="spec-table">
+    <div class="spec-row"><div class="var">--ease-standard</div><div class="val">cubic-bezier(0.2, 0, 0, 1)</div><div class="use">Default — quick start, smooth land</div></div>
+    <div class="spec-row"><div class="var">--ease-decelerate</div><div class="val">cubic-bezier(0, 0, 0, 1)</div><div class="use">Entering UI</div></div>
+    <div class="spec-row"><div class="var">--ease-accelerate</div><div class="val">cubic-bezier(0.3, 0, 1, 1)</div><div class="use">Exiting UI</div></div>
+    <div class="spec-row"><div class="var">--ease-emphasized</div><div class="val">cubic-bezier(0.05, 0.7, 0.1, 1)</div><div class="use">Expressive moments</div></div>
+  </div>
+
+  <h3 class="subsection">Z-index ladder</h3>
+  <div class="spec-table">
+    <div class="spec-row"><div class="var">--z-base</div><div class="val">0</div><div class="use">Default stacking</div></div>
+    <div class="spec-row"><div class="var">--z-raised</div><div class="val">10</div><div class="use">Sticky-within-scroll-container</div></div>
+    <div class="spec-row"><div class="var">--z-dropdown</div><div class="val">100</div><div class="use">Dropdown menus</div></div>
+    <div class="spec-row"><div class="var">--z-sticky</div><div class="val">200</div><div class="use">Sticky headers</div></div>
+    <div class="spec-row"><div class="var">--z-fixed</div><div class="val">300</div><div class="use">Page-level fixed nav</div></div>
+    <div class="spec-row"><div class="var">--z-modal-backdrop</div><div class="val">400</div><div class="use">Modal backdrop</div></div>
+    <div class="spec-row"><div class="var">--z-modal</div><div class="val">500</div><div class="use">Modal content</div></div>
+    <div class="spec-row"><div class="var">--z-popover</div><div class="val">600</div><div class="use">Popovers</div></div>
+    <div class="spec-row"><div class="var">--z-tooltip</div><div class="val">700</div><div class="use">Tooltips</div></div>
+    <div class="spec-row"><div class="var">--z-toast</div><div class="val">800</div><div class="use">Toasts — always on top</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="num">12 — Icons</div>
+  <h2>Lucide. 1.5 stroke.</h2>
+  <p class="lede">Standardize on Lucide for every OAK app. Don't mix icon libraries. Stroke 1.5px (override Lucide's default 2px) to match Satoshi's weight. Color inherits from <code>currentColor</code>.</p>
+
+  <h3 class="subsection">Sizes</h3>
+  <div class="spec-table">
+    <div class="spec-row"><div class="var">14px</div><div class="val">inline · dense UI</div><div class="use">Tab labels, chip icons, dense table cells</div></div>
+    <div class="spec-row"><div class="var">16px</div><div class="val">default</div><div class="use">Buttons, inline alongside body text</div></div>
+    <div class="spec-row"><div class="var">20px</div><div class="val">surface UI</div><div class="use">Nav rails, card headers, tooltips</div></div>
+    <div class="spec-row"><div class="var">24px</div><div class="val">prominent</div><div class="use">Hero callouts, empty states, large buttons</div></div>
+  </div>
+
+  <h3 class="subsection">Use in your app</h3>
+  <pre><code>// React (lucide-react)
+import { Search, X, Check } from 'lucide-react';
+
+&lt;Search size={16} strokeWidth={1.5} /&gt;
+&lt;X size={20} strokeWidth={1.5} /&gt;</code></pre>
+
+  <pre><code>/* Static HTML — Lucide static SVG, override stroke */
+&lt;svg width="20" height="20" stroke-width="1.5"
+     stroke="currentColor" fill="none" viewBox="0 0 24 24"&gt;
+  &lt;path d="..."/&gt;
+&lt;/svg&gt;</code></pre>
+
+  <p style="font-size: 13px; line-height: 1.6; color: var(--text-3); max-width: 600px;">When the system needs an icon Lucide doesn't have, draw it on the same 24×24 grid with 1.5px stroke, round line caps, round line joins. Don't introduce icons from other libraries — they'll fight Lucide's geometry.</p>
+</section>
+
+<section>
+  <div class="num">13 — How to use</div>
   <h2>Drop it into any OAK app.</h2>
   <p class="lede">Pull tokens from canon, set the theme attribute, use variables. No hardcoded hex anywhere in your app — that's the whole point.</p>
 
@@ -456,7 +569,7 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 </section>
 
 <section>
-  <div class="num">11 — Don'ts</div>
+  <div class="num">14 — Don'ts</div>
   <h2>Ways to get noticed.</h2>
   <p class="lede">These are the violations that get caught in review. Internalize them.</p>
   <div class="donts">
