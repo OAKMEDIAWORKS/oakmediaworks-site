@@ -193,19 +193,53 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
 <section>
   <div class="num">03 — Surfaces</div>
   <h2>Cream paper or coffee dark.</h2>
-  <p class="lede">Light is cream paper, not white. Dark is coffee, not pure black. Both warm. Toggle the page mode at top to see each tier render live below.</p>
-  <div class="surfaces">
-    <div class="card surf-canvas"><div class="label">canvas</div><div class="hex" id="hex-canvas">var(--bg-canvas)</div></div>
-    <div class="card surf-surface"><div class="label">surface</div><div class="hex" id="hex-surface">var(--bg-surface)</div></div>
-    <div class="card surf-well"><div class="label">well</div><div class="hex" id="hex-well">var(--bg-well)</div></div>
-    <div class="card surf-hover"><div class="label">hover</div><div class="hex" id="hex-hover">var(--bg-hover)</div></div>
+  <p class="lede">Light is cream paper, not white. Dark is coffee, not pure black. Both warm. Never <code>#FFF</code> or <code>#000</code> on any surface — they break the temperature.</p>
+  <div class="tref">
+    <div>
+      <h3>Light · cream</h3>
+      <div class="table">
+        <div class="row"><div class="sw" style="background:#F2EBE0; border-color:#B8AE96;"></div><div class="var">--bg-canvas</div><div class="hex">#F2EBE0</div></div>
+        <div class="row"><div class="sw" style="background:#F8F2E8; border-color:#B8AE96;"></div><div class="var">--bg-surface</div><div class="hex">#F8F2E8</div></div>
+        <div class="row"><div class="sw" style="background:#E8DFCC;"></div><div class="var">--bg-well</div><div class="hex">#E8DFCC</div></div>
+        <div class="row"><div class="sw" style="background:#ECE4D2;"></div><div class="var">--bg-hover</div><div class="hex">#ECE4D2</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Dark · coffee</h3>
+      <div class="table">
+        <div class="row"><div class="sw" style="background:#161311;"></div><div class="var">--bg-canvas</div><div class="hex">#161311</div></div>
+        <div class="row"><div class="sw" style="background:#1E1A16;"></div><div class="var">--bg-surface</div><div class="hex">#1E1A16</div></div>
+        <div class="row"><div class="sw" style="background:#0E0C0A;"></div><div class="var">--bg-well</div><div class="hex">#0E0C0A</div></div>
+        <div class="row"><div class="sw" style="background:#25201B;"></div><div class="var">--bg-hover</div><div class="hex">#25201B</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="num">04 — Type</div>
   <h2>Satoshi + JetBrains Mono.</h2>
-  <p class="lede">Two weights only — 400 regular, 500 bold. Tabular numerals for any aligned numeric column.</p>
+  <p class="lede">Two weights only — 400 regular, 500 bold. Three text tiers per mode. Tabular numerals for any aligned numeric column.</p>
+  <div class="tref" style="margin-bottom: 32px;">
+    <div>
+      <h3>Light · text</h3>
+      <div class="table">
+        <div class="row"><div class="sw" style="background:#1A1612;"></div><div class="var">--text-1</div><div class="hex">#1A1612</div></div>
+        <div class="row"><div class="sw" style="background:#4F463C;"></div><div class="var">--text-2</div><div class="hex">#4F463C</div></div>
+        <div class="row"><div class="sw" style="background:#8A8278;"></div><div class="var">--text-3</div><div class="hex">#8A8278</div></div>
+        <div class="row"><div class="sw" style="background:#BFB7A8;"></div><div class="var">--text-disabled</div><div class="hex">#BFB7A8</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Dark · text</h3>
+      <div class="table">
+        <div class="row"><div class="sw" style="background:#F2EBE0; border-color:#B8AE96;"></div><div class="var">--text-1</div><div class="hex">#F2EBE0</div></div>
+        <div class="row"><div class="sw" style="background:#A8A095;"></div><div class="var">--text-2</div><div class="hex">#A8A095</div></div>
+        <div class="row"><div class="sw" style="background:#6E665C;"></div><div class="var">--text-3</div><div class="hex">#6E665C</div></div>
+        <div class="row"><div class="sw" style="background:#4A433D;"></div><div class="var">--text-disabled</div><div class="hex">#4A433D</div></div>
+      </div>
+    </div>
+  </div>
   <div class="type-stack">
     <div class="row"><div class="meta">h1 · 36/500</div><div class="t-h1">The quick brown fox</div></div>
     <div class="row"><div class="meta">h2 · 24/500</div><div class="t-h2">The quick brown fox</div></div>
@@ -222,6 +256,22 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
   <div class="num">05 — Rules</div>
   <h2>Warm coffee. No grays.</h2>
   <p class="lede">Borders and dividers hit WCAG 1.4.11 (3:1 against canvas) in warm coffee tones. Cool grays on warm surfaces look broken — banished.</p>
+  <div class="tref" style="margin-bottom: 24px;">
+    <div>
+      <h3>Light</h3>
+      <div class="table">
+        <div class="row"><div class="sw" style="background:#8C7B5C;"></div><div class="var">--rule</div><div class="hex">#8C7B5C</div></div>
+        <div class="row"><div class="sw" style="background:#6B5A40;"></div><div class="var">--rule-strong</div><div class="hex">#6B5A40</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Dark</h3>
+      <div class="table">
+        <div class="row"><div class="sw" style="background:#7B6A4F;"></div><div class="var">--rule</div><div class="hex">#7B6A4F</div></div>
+        <div class="row"><div class="sw" style="background:#9C8A6B;"></div><div class="var">--rule-strong</div><div class="hex">#9C8A6B</div></div>
+      </div>
+    </div>
+  </div>
   <div class="rules-demo">
     <div>
       <div class="label">--rule · default divider</div>
@@ -267,6 +317,24 @@ footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule);
   <div class="num">07 — Semantic</div>
   <h2>Status colors, mode-aware.</h2>
   <p class="lede">Three states. Don't substitute alternative greens or reds — these are tuned for both surfaces.</p>
+  <div class="tref" style="margin-bottom: 24px;">
+    <div>
+      <h3>Light</h3>
+      <div class="table">
+        <div class="row"><div class="sw" style="background:#177D4D;"></div><div class="var">--success</div><div class="hex">#177D4D</div></div>
+        <div class="row"><div class="sw" style="background:#B5640A;"></div><div class="var">--warning</div><div class="hex">#B5640A</div></div>
+        <div class="row"><div class="sw" style="background:#A8201F;"></div><div class="var">--error</div><div class="hex">#A8201F</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Dark</h3>
+      <div class="table">
+        <div class="row"><div class="sw" style="background:#34C77B;"></div><div class="var">--success</div><div class="hex">#34C77B</div></div>
+        <div class="row"><div class="sw" style="background:#E89A48;"></div><div class="var">--warning</div><div class="hex">#E89A48</div></div>
+        <div class="row"><div class="sw" style="background:#E15553;"></div><div class="var">--error</div><div class="hex">#E15553</div></div>
+      </div>
+    </div>
+  </div>
   <div class="sem-grid">
     <div class="sem-card sem-success">
       <div class="lbl">success</div>
